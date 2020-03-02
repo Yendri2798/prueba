@@ -6,39 +6,77 @@ import java.awt.*;
  * @author mguzmana
  */
 public class Lab2 extends JFrame {
-    private JLabel lblFirstName;
-    private JLabel lblLastName;
-    private JLabel lblFullName;
-    private JTextField name;
-    private JTextField lastName;
-    private JTextField fullName;
+    JLabel lblFirstName;
+    JLabel lblLastName;
+    JLabel lblFullName;
+    JLabel lblPhone;
+    JLabel lblGender;
+    JLabel lblResult;
+
+    JComboBox<String> gender;
+
+    JTextField name;
+    JTextField lastName;
+    JTextField fullName;
+    JTextField phone;
+    JTextArea area;
+
+    JButton btnOK;
+    JButton btnClean;
+
+    String [] genders = {"Masculino","Femenino"};
+    static final int WIDTH = 225;
+    static final int HEIGHT = 400;
 
     public Lab2(){
         super("Lab2");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        setSize(WIDTH,HEIGHT);
         JPanel panel = new JPanel();
         lblFirstName = new JLabel("Nombre: ");
         lblLastName = new JLabel("Apellido: ");
         lblFullName = new JLabel("Nombre Completo: ");
+        lblPhone = new JLabel("Phone: ");
+        lblGender = new JLabel("Gender: ");
+        lblResult = new JLabel("Result: ");
+        btnOK = new JButton("OK");
+        btnClean = new JButton("CLEAN");
 
         name = new JTextField(15);
         lastName = new JTextField(15);
         fullName = new JTextField(15);
+        phone = new JTextField(8);
+        area = new JTextArea(5,20);
+
+        gender = new JComboBox<>(genders);
 
         lblFirstName.setName("lblFirstName");
         lblLastName.setName("lblLastName");
         lblFullName.setName("lblFullName");
+        lblPhone.setName("lblPhone");
+        lblGender.setName("lblGender");
+
+        gender.setSelectedIndex(0);
+
         panel.add(lblFirstName);
         panel.add(name);
         panel.add(lblLastName);
         panel.add(lastName);
         panel.add(lblFullName);
+        panel.add(lblPhone);
         panel.add(fullName);
+        panel.add(lblGender);
+        panel.add(gender);
+        panel.add(lblResult);
+        panel.add(area);
+        panel.add(btnOK);
+        panel.add(btnClean);
         add(panel);
 
 
         setVisible(true);
+
+
 
     }
 
