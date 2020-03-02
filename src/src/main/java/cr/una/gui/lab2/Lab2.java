@@ -46,7 +46,7 @@ public class Lab2 extends JFrame {
         lastName = new JTextField(15);
         fullName = new JTextField(15);
         phone = new JTextField(8);
-        area = new JTextArea(5, 20);
+        area = new JTextArea(5, 15);
 
         gender = new JComboBox<>(genders);
 
@@ -73,10 +73,19 @@ public class Lab2 extends JFrame {
         panel.add(btnClean);
         add(panel);
         eventActionListenerBtnOK();
-
+        eventActionListenerBtnClean();
 
         setVisible(true);
 
+    }
+
+    private void eventActionListenerBtnClean() {
+        btnClean.addActionListener(actionEvent -> {
+            name.setText("");
+            lastName.setText("");
+            fullName.setText("");
+            area.setText("");
+        });
     }
 
     private void eventActionListenerBtnOK() {
