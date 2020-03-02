@@ -28,10 +28,10 @@ public class Lab2 extends JFrame {
     static final int WIDTH = 225;
     static final int HEIGHT = 400;
 
-    public Lab2(){
+    public Lab2() {
         super("Lab2");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(WIDTH,HEIGHT);
+        setSize(WIDTH, HEIGHT);
         JPanel panel = new JPanel();
         lblFirstName = new JLabel("Nombre: ");
         lblLastName = new JLabel("Apellido: ");
@@ -46,7 +46,7 @@ public class Lab2 extends JFrame {
         lastName = new JTextField(15);
         fullName = new JTextField(15);
         phone = new JTextField(8);
-        area = new JTextArea(5,20);
+        area = new JTextArea(5, 20);
 
         gender = new JComboBox<>(genders);
 
@@ -72,12 +72,17 @@ public class Lab2 extends JFrame {
         panel.add(btnOK);
         panel.add(btnClean);
         add(panel);
+        eventActionListenerBtnOK();
 
 
         setVisible(true);
 
+    }
 
-
+    private void eventActionListenerBtnOK() {
+        btnOK.addActionListener(actionEvent -> {
+            fullName.setText(name.getText() + " " + lastName.getText());
+        });
     }
 
     public static void main(String[] arguments) {
